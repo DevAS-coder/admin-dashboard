@@ -1,6 +1,6 @@
 import App from './App.jsx'
 import Layout from './Layout.jsx'
-import Dashboard from './Components/Dashboard/dashboard.jsx'
+import Dashboard from './Components/Dashboard/Dashboard.jsx'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'

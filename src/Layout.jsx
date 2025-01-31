@@ -3,6 +3,7 @@ import TokenChecker from './TokenChecker'
 import Sidebar from './Components/Dashboard/Sidebar/Sidebar'
 import { useContext } from 'react'
 import { SideContext } from './Contexts/SidebarContext'
+import Header from './Components/Dashboard/Header/Header'
 
 function Layout() {
 
@@ -12,7 +13,8 @@ function Layout() {
     <div className='bg-black min-h-screen'>
         <TokenChecker/>
         <Sidebar/>
-        <div className={`${isOpen ? 'mr-72' : 'mr-28'} transition-all duration-300 ease-in-out pt-7`}><Outlet/></div>
+        <Header/>
+        <div className={`${isOpen ? 'mr-65' : 'mr-16 md:mr-21'} transition-all duration-300 ease-in-out pt-18`}><Outlet/></div>
     </div>
   )
 }

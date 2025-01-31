@@ -6,12 +6,14 @@ import { SideContext } from '../../../Contexts/SidebarContext';
 function Sidebar() {
 
   const itemNames = [
+    'داشبورد',
     'نمودار ها',
     'سفارشات',
     'تیکت ها'
   ]
 
   const icons = [
+    'fa-solid fa-folder',
     'fa fa-pie-chart',
     'fa-solid fa-cart-plus',
     'fa-solid fa-ticket'
@@ -20,8 +22,8 @@ function Sidebar() {
   const { isOpen, setisOpen } = useContext(SideContext)
 
   return (
-    <div className={`bg-gradient-to-b from-gray-900 to-gray-950 text-white shadow-xl min-h-screen fixed right-0 top-0 p-6 overflow-hidden ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300 ease-out rounded-l-xl`}>
-      <div className='flex justify-between items-center border-b border-gray-700 pb-4 mb-6'>
+    <div className={`bg-gradient-to-b from-gray-900 to-gray-950 text-white shadow-xl min-h-screen fixed right-0 top-0 p-3 pt-6 md:p-6 overflow-hidden ${isOpen ? 'w-90 sm:w-64' : 'w-14 md:w-20'} transition-all duration-300 ease-out rounded-l-xl z-90`}>
+      <div className={`flex items-center border-b border-gray-700 pb-4 mb-6 ${isOpen ? 'justify-between' : 'justify-center'}`}>
         {isOpen ? (
           <h1 className='text-xl font-semibold tracking-wide whitespace-nowrap overflow-hidden'>نوار ابزار</h1>
         ) : null}
