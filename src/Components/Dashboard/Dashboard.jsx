@@ -5,7 +5,9 @@ function Dashboard() {
   const {name, Username} = useContext(Usercontext)
 
   return (
-    <div><p className=' text-white'>{name}</p></div>
+    <div>
+      <h1 className=' text-white text-2xl'>سلام {name} خوش اومدی!👋</h1>
+    </div>
   )
 }
 
