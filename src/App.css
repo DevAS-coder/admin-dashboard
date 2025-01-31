@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('assets/fonts/Vazir-Medium-FD-WOL.woff2') format('woff2'), 
+       url('assets/fonts/Vazir-Medium-FD-WOL.woff') format('woff'),
+       url('assets/fonts/Vazir-Medium-FD-WOL.ttf') format('ttf');
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('assets/fonts/Vazir-Bold-FD-WOL.woff2') format('woff2'), 
+       url('assets/fonts/Vazir-Bold-FD-WOL.woff') format('woff'),
+       url('assets/fonts/Vazir-Bold-FD-WOL.ttf') format('ttf');
+  font-weight: bold; 
+  font-style: normal;
+}
+
+body{
+  font-family: 'Vazir', sans-serif;
+  direction: rtl;
+}
+
+.prespective{
+  perspective: 1000px;
+}
+
+.card {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card .face {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  backface-visibility: hidden;
+  box-shadow: 0px 0px 50px 20px rgb(0, 0, 200);
+}
+
+.card .back {
+  position: absolute;
+  transform: rotateY(180deg);
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+input{
+  outline: 0px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  width: 25px; 
+  height: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.3); 
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.sidebar-shadow{
+  box-shadow: 0px 0px 10px 15px rgba(0, 0, 191, 0.524);
+}
+
+.sidebar-icon{
+  font-size: 20px;
+}
