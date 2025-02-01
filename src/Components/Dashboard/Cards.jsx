@@ -14,7 +14,7 @@ function Cards() {
             {cards.map((card) => (card.status &&
                 <div
                     key={card.id}
-                    className={`p-5 rounded-xl shadow-md flex items-center ${card.bg} flex-1`}
+                    className={`p-5 rounded-xl shadow-md flex items-center  ${card.bg} flex-1`}
                 >
                     <div className="p-3 w-10 flex justify-center items-center h-10 rounded-full bg-white shadow text-gray-900 mr-4">
                         {card.icon}
