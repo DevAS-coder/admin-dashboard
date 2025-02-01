@@ -1,6 +1,9 @@
 import App from './App.jsx'
 import Layout from './Layout.jsx'
 import Dashboard from './Components/Dashboard/Dashboard.jsx'
+import ChartsPage from './Components/Dashboard/ChartsPage.jsx'
+import OrdersPage from './Components/Dashboard/OrdersPage.jsx'
+import TicketsPage from './Components/Dashboard/TicketsPage.jsx'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -14,12 +17,16 @@ const router = createBrowserRouter([
     path: '/',
     index: true,
     element: <App />,
+    loader:() => {document.title = 'داشبورد | ورود / ثبت نام'}
   },
   {
     path: '/dashboard',
     element: <Layout />,
     children: [
-      { index: true, element: <Dashboard /> },
+      { index: true, element: <Dashboard /> ,loader:() => {document.title = 'داشبورد | صفحه اصلی'}},
+      { path: '/dashboard/charts', element: <ChartsPage /> ,loader:() => {document.title = 'داشبورد | نمودار ها'}},
+      { path: '/dashboard/orders', element: <OrdersPage /> ,loader:() => {document.title = 'داشبورد | سفارشات'}},
+      { path: '/dashboard/tickets', element: <TicketsPage /> ,loader:() => {document.title = 'داشبورد | تیکت ها'}},
     ]
   }
 ])
