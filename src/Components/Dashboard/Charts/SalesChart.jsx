@@ -1,7 +1,8 @@
-import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+import React, { memo } from 'react';
+import ReactECharts from 'echarts-for-react';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import { color } from 'echarts';
 
 const data = [
     { name: 'فروردین', فروش: 40 },
@@ -24,7 +25,46 @@ const exportToExcel = () => {
     saveAs(dataBlob, "Sales_Chart.xlsx");
 };
 
-export default function SalesChart() {
+const SalesChart = () => {
+    const option = {
+        textStyle: {
+            fontFamily: 'Vazir, Arial, sans-serif',
+            fontSize: 14,
+        },
+        tooltip: {
+            trigger: 'axis',
+            formatter: '{a} <br/>{b}: {c} تومان',
+        },
+        xAxis: {
+            type: 'category',
+            data: data.map(item => item.name),
+            axisLabel: {
+                color: '#FFFFFF',
+            },
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                color: '#FFFFFF',
+            },
+        },
+        series: [
+            {
+                name: 'فروش',
+                type: 'line',
+                data: data.map(item => item.فروش),
+                smooth: true,
+                areaStyle: {
+                    color: "rgba(130, 202, 157, 0.7)",
+                },
+                lineStyle: {
+                    color: "#82ca9d",
+                    width: 4
+                },
+                symbolSize: 10
+            },
+        ],
+    };
 
     return (
         <div className="p-4 rounded-md">
@@ -32,22 +72,16 @@ export default function SalesChart() {
                 <h2 className='text-xl'>نمودار فروش بر اساس ماه</h2>
                 <button
                     onClick={exportToExcel}
-                    className="ml-4  mt-3 md:mt-0 bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition cursor-pointer"
+                    className="ml-4 mt-3 md:mt-0 bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition cursor-pointer"
                 >
                     دانلود خروجی اکسل<i className="fa-solid fa-file-excel mr-2"></i>
                 </button>
             </div>
-            <ResponsiveContainer width="100%" height={300}>
-                <AreaChart data={data}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis width={80} tick={{ dx: -60 }} tickFormatter={(value) => `${value} تومان`} />
-                    <Tooltip formatter={(value) => `${value} تومان`} />
-                    <Area type="monotone" dataKey="فروش" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.3} />
-                </AreaChart>
-            </ResponsiveContainer>
-
-
+            <div className=''>
+                <ReactECharts option={option} />
+            </div>
         </div>
     );
 }
+
+export default memo(SalesChart);

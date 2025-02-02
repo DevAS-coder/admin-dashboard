@@ -13,8 +13,8 @@ function Dashboard() {
         <Cards/>
       </div>
 
-      <div className="mb-6">
-        <h2 className="text-lg font-bold mb-4">نمودار درآمد</h2>
+      <div className="">
+        <h2 className="text-lg font-bold">نمودار درآمد</h2>
         <DashboardChart />
       </div>
 

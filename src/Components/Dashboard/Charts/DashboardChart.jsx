@@ -1,24 +1,72 @@
-import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+import React, { memo } from 'react';
+import ReactECharts from 'echarts-for-react';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 const data = [
-  { name: 'فروردین', فروش: 40 },
-  { name: 'اردیبهشت', فروش: 55 },
-  { name: 'خرداد', فروش: 30 },
-  { name: 'تیر', فروش: 70 },
-  { name: 'مرداد', فروش: 25 },
-  { name: 'شهریور', فروش: 60 },
+    { name: 'فروردین', فروش: 40 },
+    { name: 'اردیبهشت', فروش: 55 },
+    { name: 'خرداد', فروش: 30 },
+    { name: 'تیر', فروش: 70 },
+    { name: 'مرداد', فروش: 25 },
+    { name: 'شهریور', فروش: 60 },
+    { name: 'مهر', فروش: 30 },
+    { name: 'آبان', فروش: 10 },
+    { name: 'آذر', فروش: 90 },
+    { name: 'دی', فروش: 20 },
+    { name: 'بهمن', فروش: 50 },
+    { name: 'اسفند', فروش: 40 },
 ];
 
-export default function MyAreaChart() {
-  return (
-    <ResponsiveContainer width="100%" height={250}>
-      <AreaChart data={data} >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis width={80} tick={{ dx: -60 }} tickFormatter={(value) => `${value} تومان`} />
-        <Tooltip formatter={(value) => `${value} تومان`} />
-        <Area type="monotone" dataKey="فروش" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.3} />
-      </AreaChart>
-    </ResponsiveContainer>
-  );
+
+const DashboardChart = () => {
+    const option = {
+        textStyle: {
+            fontFamily: 'Vazir, Arial, sans-serif',
+            fontSize: 14,
+        },
+        tooltip: {
+            trigger: 'axis',
+            formatter: '{a} <br/>{b}: {c} تومان',
+        },
+        xAxis: {
+            type: 'category',
+            data: data.map(item => item.name),
+            axisLabel: {
+                color: '#FFFFFF',
+            },
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                color: '#FFFFFF',
+            },
+        },
+        series: [
+            {
+                name: 'فروش',
+                type: 'line',
+                data: data.map(item => item.فروش),
+                smooth: true,
+                areaStyle: {
+                    color: "rgba(130, 202, 157, 0.7)",
+                },
+                lineStyle: {
+                    color: "#82ca9d",
+                    width: 4
+                },
+                symbolSize: 10
+            },
+        ],
+    };
+
+    return (
+        <div className="p-4 rounded-md">
+            <div className=''>
+                <ReactECharts option={option} />
+            </div>
+        </div>
+    );
 }
+
+export default memo(DashboardChart);

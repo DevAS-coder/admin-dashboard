@@ -1,6 +1,8 @@
-import { PieChart, Pie, Tooltip, Cell, Legend, ResponsiveContainer } from 'recharts';
+import React, { memo } from 'react';
+import ReactECharts from 'echarts-for-react';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import { color } from 'echarts';
 
 const data = [
     { name: 'کارشناس 1', فروش: 100 },
@@ -8,8 +10,6 @@ const data = [
     { name: 'کارشناس 3', فروش: 50 },
     { name: 'کارشناس 4', فروش: 50 },
 ];
-
-const COLORS = ['#1da341', '#a31d1d', '#201da3', '#98a31d'];
 
 const exportToExcel = () => {
     const wb = XLSX.utils.book_new();
@@ -24,6 +24,39 @@ const exportToExcel = () => {
 };
 
 const SellerChart = () => {
+    const option = {
+        textStyle: {
+            fontFamily: 'Vazir, Arial, sans-serif',
+            fontSize: 14,
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b}: {c} تومان ({d}%)',
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            textStyle: {color: 'white'}
+        },
+        series: [
+            {
+                name: 'فروش',
+                type: 'pie',
+                radius: '50%',
+                data: data.map(item => ({ value: item.فروش, name: item.name })),
+                label: {
+                    color: '#FFFFFF',
+                },
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    },
+                },
+            },
+        ],
+    };
 
     return (
         <div className="p-4 rounded-md">
@@ -36,19 +69,11 @@ const SellerChart = () => {
                     دانلود خروجی اکسل<i className="fa-solid fa-file-excel mr-2"></i>
                 </button>
             </div>
-            <ResponsiveContainer width="100%" height={300}>
-                <PieChart>
-                <Tooltip formatter={(value) => `${value} تومان`} />
-                <Legend />
-                    <Pie data={data} dataKey='فروش' cx={'50%'} cy={'50%'} outerRadius={100} label >
-                        {data.map((entry, index) => (
-                            <Cell key={index} fill={COLORS[index % COLORS.length]} strokeWidth={0} />
-                        ))}
-                    </Pie>
-                </PieChart>
-            </ResponsiveContainer>
+            <div className=''>
+                <ReactECharts option={option} />
+            </div>
         </div>
     );
 }
 
-export default SellerChart
+export default memo(SellerChart);
