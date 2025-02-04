@@ -1,7 +1,5 @@
 import React, { memo } from 'react';
 import ReactECharts from 'echarts-for-react';
-import * as XLSX from 'xlsx';
-import { saveAs } from 'file-saver';
 
 const data = [
     { name: 'فروردین', فروش: 40 },
@@ -62,7 +60,7 @@ const DashboardChart = () => {
 
     return (
         <div className="p-4 rounded-md">
-            <div className=''>
+            <div className='w-70 sm:w-auto'>
                 <ReactECharts option={option} />
             </div>
         </div>

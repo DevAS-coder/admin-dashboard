@@ -14,7 +14,7 @@ function Layout() {
         <TokenChecker/>
         <Sidebar/>
         <Header/>
-        <div className={`${isOpen ? 'mr-65' : 'mr-16 md:mr-21'} transition-all duration-300 ease-in-out pt-18`}><Outlet/></div>
+        <div className={`${isOpen ? 'md:mr-65' : 'mr-16 md:mr-21'} transition-all duration-300 ease-in-out pt-18`}><Outlet/></div>
     </div>
   )
 }
