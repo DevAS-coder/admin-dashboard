@@ -8,20 +8,20 @@ function Dashboard() {
 
   return (
     <CardsContext>
-    <div className="bg-gray-900 text-white p-4">
-      <div className='mb-5'>
-        <Cards/>
-      </div>
+        <div className="bg-gray-900 text-white p-4">
+          <div className='mb-5'>
+            <Cards />
+          </div>
 
-      <div className="">
-        <h2 className="text-lg font-bold">نمودار درآمد</h2>
-        <DashboardChart />
-      </div>
+          <div className="">
+            <h2 className="text-lg font-bold">نمودار درآمد</h2>
+            <DashboardChart />
+          </div>
 
-      <div className="mb-6">
-        <QuickSetting/>
-      </div>
-    </div>
+          <div className="mb-6">
+            <QuickSetting />
+          </div>
+        </div>
     </CardsContext>
   );
 };

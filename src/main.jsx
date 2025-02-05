@@ -11,22 +11,23 @@ import { NotificationContext } from './Contexts/NotificationContext.jsx'
 import { Userinfo } from './Contexts/Userinfo.jsx'
 import { AuthContext } from './Contexts/AuthContext.jsx'
 import { SidebarContext } from './Contexts/SidebarContext.jsx'
+import { OrdersPageContext } from './Contexts/OrderPageContext.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     index: true,
     element: <App />,
-    loader:() => {document.title = 'داشبورد | ورود / ثبت نام'}
+    loader: () => { document.title = 'داشبورد | ورود / ثبت نام' }
   },
   {
     path: '/dashboard',
     element: <Layout />,
     children: [
-      { index: true, element: <Dashboard /> ,loader:() => {document.title = 'داشبورد | صفحه اصلی'}},
-      { path: '/dashboard/charts', element: <ChartsPage /> ,loader:() => {document.title = 'داشبورد | نمودار ها'}},
-      { path: '/dashboard/orders', element: <OrdersPage /> ,loader:() => {document.title = 'داشبورد | سفارشات'}},
-      { path: '/dashboard/tickets', element: <TicketsPage /> ,loader:() => {document.title = 'داشبورد | تیکت ها'}},
+      { index: true, element: <Dashboard />, loader: () => { document.title = 'داشبورد | صفحه اصلی' } },
+      { path: '/dashboard/charts', element: <ChartsPage />, loader: () => { document.title = 'داشبورد | نمودار ها' } },
+      { path: '/dashboard/orders', element: <OrdersPage />, loader: () => { document.title = 'داشبورد | سفارشات' } },
+      { path: '/dashboard/tickets', element: <TicketsPage />, loader: () => { document.title = 'داشبورد | تیکت ها' } },
     ]
   }
 ])
@@ -37,7 +38,9 @@ createRoot(document.getElementById('root')).render(
       <Userinfo>
         <NotificationContext>
           <SidebarContext>
-            <RouterProvider router={router} />
+            <OrdersPageContext>
+              <RouterProvider router={router} />
+            </OrdersPageContext>
           </SidebarContext>
         </NotificationContext>
       </Userinfo>
