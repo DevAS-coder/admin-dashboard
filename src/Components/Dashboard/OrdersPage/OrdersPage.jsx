@@ -122,7 +122,7 @@ function OrdersPage() {
                         setSearchName('');
                         setMaxPrice('');
                         setMinPrice('');
-                        setSelectedDate(null); // اگر می‌خواهید تاریخ انتخابی را هم پاک کنید
+                        setSelectedDate(null);
                     }}
                 >
                     پاک کردن فیلترها
