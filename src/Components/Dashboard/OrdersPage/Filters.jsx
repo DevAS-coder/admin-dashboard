@@ -29,7 +29,14 @@ function Filters() {
     };    
 
     useEffect(() => {
-        fetch("https://dashboard-db.amirhoseinsadeghian2017.workers.dev/api/orders", {
+        const cachedData = sessionStorage.getItem('cachedData')
+        if(cachedData){
+            setOrders(JSON.parse(cachedData))
+            setFilteredOrders(JSON.parse(cachedData))
+            setLoading(false)
+        }
+        else {
+                    fetch("https://dashboard-db.amirhoseinsadeghian2017.workers.dev/api/orders", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ count: 20, topDown: "ASCS" }),
@@ -38,12 +45,15 @@ function Filters() {
             .then((data) => {
                 setOrders(data.orders.results);
                 setFilteredOrders(data.orders.results);
+                sessionStorage.setItem('cachedData', JSON.stringify(data.orders.results))
                 setLoading(false);
             })
             .catch((error) => {
                 console.error("Error fetching orders:", error);
                 setLoading(false);
             });
+        }
+
     }, []);
 
     useEffect(() => {
