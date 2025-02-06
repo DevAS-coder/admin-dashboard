@@ -11,7 +11,6 @@ import { NotificationContext } from './Contexts/NotificationContext.jsx'
 import { Userinfo } from './Contexts/Userinfo.jsx'
 import { AuthContext } from './Contexts/AuthContext.jsx'
 import { SidebarContext } from './Contexts/SidebarContext.jsx'
-import { OrdersPageContext } from './Contexts/OrderPageContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,9 +37,7 @@ createRoot(document.getElementById('root')).render(
       <Userinfo>
         <NotificationContext>
           <SidebarContext>
-            <OrdersPageContext>
               <RouterProvider router={router} />
-            </OrdersPageContext>
           </SidebarContext>
         </NotificationContext>
       </Userinfo>
