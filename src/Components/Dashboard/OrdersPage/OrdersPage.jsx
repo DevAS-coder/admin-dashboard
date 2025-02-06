@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import './OrderPage.css';
 import Filters from './Filters';
 import LoadItems from './LoadItems.jsx';
