@@ -59,8 +59,8 @@ const DashboardChart = () => {
     };
 
     return (
-        <div className="p-4 rounded-md">
-            <div className='w-70 sm:w-auto'>
+        <div className="p-4 rounded-md flex justify-center">
+            <div className='w-70 sm:w-[170lvh]'>
                 <ReactECharts option={option} />
             </div>
         </div>

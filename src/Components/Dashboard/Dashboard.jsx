@@ -14,11 +14,13 @@ function Dashboard() {
           </div>
 
           <div className="">
-            <h2 className="text-lg font-bold">نمودار درآمد</h2>
-            <DashboardChart />
+            <h2 className="text-lg font-bold mr-10 mt-10 -mb-10">نمودار درآمد</h2>
+            <div className='bg-gray-800 p-4 rounded-xl'>
+              <DashboardChart />
+            </div>
           </div>
 
-          <div className="mb-6">
+          <div className="mb-6 mt-5">
             <QuickSetting />
           </div>
         </div>

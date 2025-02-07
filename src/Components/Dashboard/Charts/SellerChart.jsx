@@ -31,12 +31,13 @@ const SellerChart = () => {
         },
         tooltip: {
             trigger: 'item',
-            formatter: '{a} <br/>{b}: {c} تومان ({d}%)',
+            formatter: '{b}: {c} تومان',
         },
         legend: {
-            orient: 'vertical',
+            orient: 'horizontal',
             left: 'left',
-            textStyle: {color: 'white'}
+            textStyle: { color: 'white' },
+            itemGap: 40, 
         },
         series: [
             {
@@ -54,6 +55,7 @@ const SellerChart = () => {
                         shadowColor: 'rgba(0, 0, 0, 0.5)',
                     },
                 },
+                top: window.innerWidth < 640 ? '20%' : '0%',
             },
         ],
     };
@@ -69,7 +71,7 @@ const SellerChart = () => {
                     دانلود خروجی اکسل<i className="fa-solid fa-file-excel mr-2"></i>
                 </button>
             </div>
-            <div className=''>
+            <div className='w-70 sm:w-[80lvh]'>
                 <ReactECharts option={option} />
             </div>
         </div>

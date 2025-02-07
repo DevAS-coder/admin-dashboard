@@ -77,7 +77,7 @@ const SalesChart = () => {
                     دانلود خروجی اکسل<i className="fa-solid fa-file-excel mr-2"></i>
                 </button>
             </div>
-            <div className=''>
+            <div className='w-70 sm:w-[80lvh]'>
                 <ReactECharts option={option} />
             </div>
         </div>
