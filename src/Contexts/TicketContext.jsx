@@ -4,14 +4,17 @@ export const TicketsContext = createContext()
 
 export function TicketContext({children}) {
     const [selectedTicket, setSelectedTicket] = useState(null);
-    const Tickets = [
-        { id: 1, title: 'رفع باگ نمودار ها', description: 'Description for ticket 1', status: 'باز' },
-        { id: 2, title: 'دریافت اطلاعات', description: 'Description for ticket 2', status: 'درحال انجام' },
-        { id: 3, title: 'اضافه کردن خروجی اکسل', description: 'Description for ticket 3', status: 'بسته' }
-      ];
+    const [Tickets, setTickets] = useState([]);
+    const [ModalOpen, setModalOpen] = useState(false);
+
+    const status = {
+        'open': 'باز',
+        'in_progress': 'درحال انجام',
+        'closed': 'بسته شده'
+    }
 
     return (
-        <TicketsContext.Provider value={{ selectedTicket, setSelectedTicket, Tickets }}>
+        <TicketsContext.Provider value={{ selectedTicket, setSelectedTicket, Tickets, setTickets, status,ModalOpen, setModalOpen }}>
             {children}
         </TicketsContext.Provider>
     )

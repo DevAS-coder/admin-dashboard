@@ -1,0 +1,38 @@
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.modal-content {
+    padding: 20px;
+    border-radius: 10px;
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+.ReactModal__Content--after-open {
+    transform: scale(1);
+}
+
+.ReactModal__Content--before-close {
+    transform: scale(0.8);
+}
+
+textarea {
+    max-height: 150px; 
+    overflow-y: auto;
+}
