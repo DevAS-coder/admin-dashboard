@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { TicketsContext } from '../../../Contexts/TicketContext';
 
 function TicketsMessage({ messages }) {
-    const parseMessages = JSON.parse(messages);
 
     return (
         <div>
-            {parseMessages.map((message, index) => (
+            {messages.map((message, index) => (
                 <div 
                     key={index} 
                     className={`w-full flex ${message.sender === 'پشتیبانی' ? 'justify-end' : 'justify-start'}`}

@@ -1,10 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { TicketsContext } from '../../../Contexts/TicketContext'
 import TicketsMessage from './TicketsMessage'
 import SendMessage from './SendMessage'
 
 function TicketsMain() {
-    const { selectedTicket, setSelectedTicket, status } = useContext(TicketsContext)
+    const { selectedTicket, setSelectedTicket, status,chatMessages, setchatMessages } = useContext(TicketsContext)
+
+    useEffect(() => {
+        if (selectedTicket) {
+            setchatMessages(JSON.parse(selectedTicket.messages));
+        }
+    }, [selectedTicket, chatMessages]);
 
     return (
         <>
@@ -23,7 +29,7 @@ function TicketsMain() {
                         </div>
                         <hr />
                         <div className='space-y-2 bg-gray-700 p-6 rounded-lg'>
-                            <TicketsMessage messages={selectedTicket.messages} />
+                            <TicketsMessage messages={chatMessages} />
                             {
                                 selectedTicket.status === 'closed' ? (
                                     <div className="bg-red-600 text-white p-2 rounded-lg">

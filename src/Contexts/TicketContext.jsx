@@ -6,6 +6,8 @@ export function TicketContext({children}) {
     const [selectedTicket, setSelectedTicket] = useState(null);
     const [Tickets, setTickets] = useState([]);
     const [ModalOpen, setModalOpen] = useState(false);
+    const [chatMessages, setchatMessages] = useState([])
+
 
     const status = {
         'open': 'باز',
@@ -14,7 +16,7 @@ export function TicketContext({children}) {
     }
 
     return (
-        <TicketsContext.Provider value={{ selectedTicket, setSelectedTicket, Tickets, setTickets, status,ModalOpen, setModalOpen }}>
+        <TicketsContext.Provider value={{ selectedTicket, setSelectedTicket, Tickets, setTickets, status,ModalOpen, setModalOpen, chatMessages, setchatMessages }}>
             {children}
         </TicketsContext.Provider>
     )
