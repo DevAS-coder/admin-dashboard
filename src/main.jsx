@@ -29,7 +29,11 @@ const router = createBrowserRouter([
       { path: '/dashboard/tickets', element: <TicketsPage />, loader: () => { document.title = 'داشبورد | تیکت ها' } },
     ]
   }
-])
+],
+// {
+//   basename: '/projects/admin-dashboard',
+// }
+)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
