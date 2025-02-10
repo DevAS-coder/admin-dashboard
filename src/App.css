@@ -82,3 +82,7 @@ input{
 .sidebar-icon{
   font-size: 20px;
 }
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open.modal-overlay {
+  z-index: 10;
+}

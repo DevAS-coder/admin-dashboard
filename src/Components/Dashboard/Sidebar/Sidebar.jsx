@@ -32,7 +32,7 @@ function Sidebar() {
   const handleMouseLeave = useCallback(() => setisOpen(false), [setisOpen]);
 
   return (
-    <div className={`bg-gradient-to-b will-change-transform from-gray-900 to-gray-950 text-white shadow-xl min-h-screen fixed right-0 top-0 p-3 pt-6 md:p-6 overflow-hidden ${isOpen ? 'w-90 sm:w-64' : 'w-14 md:w-20'} transition-all duration-300 ease-out rounded-l-xl z-90`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={`bg-gradient-to-b will-change-transform from-gray-900 to-gray-950 text-white shadow-xl min-h-screen fixed right-0 top-0 p-3 pt-6 md:p-6 overflow-hidden ${isOpen ? 'w-90 sm:w-64' : 'w-14 md:w-20'} transition-all duration-300 ease-out z-1 rounded-l-xl`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className={`flex items-center border-b border-gray-700 pb-4 mb-6 ${isOpen ? 'justify-between' : 'justify-center'}`}>
         {isOpen ? (
           <h1 className='text-xl font-semibold tracking-wide whitespace-nowrap overflow-hidden'>نوار ابزار</h1>

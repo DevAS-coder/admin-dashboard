@@ -19,7 +19,7 @@ function SendTicket() {
                 className="modal-content"
                 overlayClassName="modal-overlay"
             >
-                <div className="p-6 bg-gray-700 rounded-lg shadow-lg text-white max-h-96">
+                <div className="p-6 bg-gray-700 rounded-lg shadow-lg text-white max-h-96 z10">
                     <div className="flex justify-between items-center">
                         <h2>ایجاد تیکت جدید</h2>
                         <button onClick={() => setModalOpen(false)} className="px-3 py-1 bg-red-500 text-white rounded cursor-pointer">
