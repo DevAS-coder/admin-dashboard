@@ -10,12 +10,12 @@ function TicketsMain() {
         if (selectedTicket) {
             setchatMessages(JSON.parse(selectedTicket.messages));
         }
-    }, [selectedTicket, chatMessages]);
+    }, [selectedTicket]);
 
     return (
         <>
             {selectedTicket ? (
-                <div className="w-2/3 p-6 bg-gray-900 ">
+                <div className="w-full lg:w-2/3 p-6 bg-gray-900 ">
                     <div className="space-y-4 bg-gray-800 p-6 rounded-lg shadow-lg">
                         <div className='flex justify-between items-center'>
                             <div>
@@ -41,7 +41,7 @@ function TicketsMain() {
                     </div>
                 </div>
             ) : (
-                <div className='flex justify-center w-2/3 items-center'><p className="text-lg text-center">لطفا یک تیکت انتخاب کنید یا تیکت جدیدی بسازید :)</p></div>
+                <div className='flex justify-center w-full lg:w-2/3 items-center'><p className="text-lg text-center">لطفا یک تیکت انتخاب کنید یا تیکت جدیدی بسازید :)</p></div>
             )}
         </>
     )

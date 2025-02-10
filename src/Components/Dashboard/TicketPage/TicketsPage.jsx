@@ -7,7 +7,7 @@ function TicketsPage() {
 
   return (
     <TicketContext>
-      <div className="flex min-h-screen bg-gray-900 text-white">
+      <div className="flex flex-wrap min-h-screen bg-gray-900 text-white">
         <TicketsList />
         <TicketsMain />
       </div>
