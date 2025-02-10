@@ -8,6 +8,7 @@ function SendMessage() {
 	const [newMessage, setNewMessage] = useState('')
 	const [response, setResponse] = useState('')
 	const [btnClicked, setBtnClicked] = useState(false)
+	const { setShowNotif } = useContext(notifContext)
 
 	const handleNewMessage = (e) => {
 		setNewMessage(e.target.value)
@@ -18,8 +19,6 @@ function SendMessage() {
 		setchatMessages([...chatMessages, { sender: 'کاربر', message: newMessage }])
 		selectedTicket.messages = JSON.stringify([...chatMessages, { sender: 'کاربر', message: newMessage }])
 	}
-
-	const { setMessage, setStatus, setShowNotif } = useContext(notifContext)
 
 	useEffect(() => {
 		if (btnClicked && newMessage) {
@@ -37,8 +36,6 @@ function SendMessage() {
 
 					if (res.status === 200) {
 						setNewMessage('')
-						setMessage(data.message)
-						setStatus(res.status)
 						setShowNotif(true)
 						setTimeout(() => {
 							setShowNotif(false)
@@ -57,7 +54,7 @@ function SendMessage() {
 
 	return (
 		<div>
-			{response && <Notification message={response.message} status='200' />}
+			{response && <Notification message={response.message} status={response.status} />}
 			<div className="flex justify-between items-center mt-5">
 				<input type="text" className="w-5/5 p-2 bg-gray-800 rounded-lg" placeholder="پیام خود را بنویسید..." value={newMessage} onChange={handleNewMessage} />
 				<button className="bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-900 cursor-pointer" onClick={handleClick}>ارسال</button>

@@ -5,7 +5,7 @@ import '../../assets/css/Notification.css'
 function Notification({ message, status }) {
     const { ShowNotif } = useContext(notifContext)
 
-    if (status === '200') {
+    if (status === 200 || status === '200') {
         return (
             <div className={`bg-green-600 h-16 w-60 fixed top-4 right-4 shadow-lg rounded-lg flex items-center justify-center text-white notif ${ShowNotif ? 'slide-in' : 'slide-out'}`}>
                 <svg fill="#ffffff" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ function Notification({ message, status }) {
         )
     }
 
-    if (status === '500') {
+    if (status === 500 || status === '500') {
         return (
             <div className={`bg-red-600 h-16 w-60 fixed top-4 right-4 shadow-lg rounded-lg flex items-center justify-center text-white ${ShowNotif ? 'slide-in' : 'slide-out'}`}>
                 <svg fill="#ffffff" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
