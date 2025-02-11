@@ -50,6 +50,7 @@ function Sidebar() {
           <Link to={`${links[index]}`} key={index}>
           <li
             className={`mb-6 pb-3 flex items-center transition-all duration-300 group cursor-pointer hover:bg-gray-800 rounded-lg justify-between ${isOpen ? 'p-3' : 'pt-3'} hover:text-blue-600`}
+            onClick={() => setisOpen(false)}
           >
             <div className="flex items-center gap-3 overflow-hidden">
               <SideIcon icon={icons[index]} />
