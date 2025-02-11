@@ -11,7 +11,7 @@ function LoadItems() {
         <div className="bg-gray-800 h-[600px] mt-10 lg:mx-5 rounded-3xl overflow-hidden">
             <div className="overflow-x-auto w-full">
                 <div className="w-full min-w-[800px] lg:min-w-full">
-                    <div className="sticky top-0 bg-gray-700 py-2 z-10">
+                    <div className="sticky top-0 bg-gray-700 py-2 z-1">
                         <OrderHeader />
                     </div>
                     <div className="h-[500px] overflow-y-auto custom-scroll">
