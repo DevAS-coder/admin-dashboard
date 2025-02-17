@@ -11,6 +11,7 @@ import { NotificationContext } from './Contexts/NotificationContext.jsx'
 import { Userinfo } from './Contexts/Userinfo.jsx'
 import { AuthContext } from './Contexts/AuthContext.jsx'
 import { SidebarContext } from './Contexts/SidebarContext.jsx'
+import ProfilePage from './Components/Dashboard/ProfilePage/ProfilePage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: '/dashboard/charts', element: <ChartsPage />, loader: () => { document.title = 'داشبورد | نمودار ها' } },
       { path: '/dashboard/orders', element: <OrdersPage />, loader: () => { document.title = 'داشبورد | سفارشات' } },
       { path: '/dashboard/tickets', element: <TicketsPage />, loader: () => { document.title = 'داشبورد | تیکت ها' } },
+      { path: '/dashboard/profile', element: <ProfilePage/>, loader: () => { document.title = 'داشبورد | پروفایل' } },
     ]
   }
 ],

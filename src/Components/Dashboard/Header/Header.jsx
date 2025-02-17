@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { SideContext } from '../../../Contexts/SidebarContext';
 import { Usercontext } from '../../../Contexts/Userinfo';
+import { Link } from 'react-router-dom';
 
 function Header() {
 
@@ -12,7 +13,7 @@ function Header() {
             <h1 className=' text-white text-sm md:text-xl whitespace-nowrap'>سلام {name} خوش اومدی! 👋</h1>
             <div className="flex items-center gap-4">
                 <i className="fa-solid fa-bell cursor-pointer hover:text-gray-400"></i>
-                <i className="fa-solid fa-user cursor-pointer hover:text-gray-400"></i>
+                <Link to={'/dashboard/profile'}><i className="fa-solid fa-user cursor-pointer hover:text-gray-400"></i></Link>
             </div>
         </div>
     );

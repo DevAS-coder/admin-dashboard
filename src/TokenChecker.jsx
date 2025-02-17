@@ -39,7 +39,6 @@ const TokenChecker = () => {
       throw new Error("Invalid token");
     }
 
-    // تبدیل Base64 به بایت‌ها و سپس به متن UTF-8 (حل مشکل `atob`)
     const decodeBase64 = (base64) => {
       const binaryString = atob(base64.replace(/-/g, "+").replace(/_/g, "/"));
       const bytes = new Uint8Array([...binaryString].map((char) => char.charCodeAt(0)));
